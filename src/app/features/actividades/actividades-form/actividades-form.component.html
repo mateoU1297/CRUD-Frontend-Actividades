@@ -53,12 +53,12 @@
             <span class="input-group-text">
               <em
                 class               = "fa fa-calendar-check"
-                [class.green-icon]  = "this.formActividad.get('fecha')?.valid"
-                [class.red-icon]    = "this.formActividad.get('fecha')?.invalid && this.formActividad.get('fecha')?.touched"
+                [class.green-icon]  = "this.formActividad.get('fechaEjecucion')?.valid"
+                [class.red-icon]    = "this.formActividad.get('fechaEjecucion')?.invalid && this.formActividad.get('fechaEjecucion')?.touched"
               ></em>
             </span>
             <input
-                formControlName   = "fecha"
+                formControlName   = "fechaEjecucion"
                 type              = "text"
                 class             = "form-control"
                 placeholder       = "Escribir fecha actividad"
@@ -68,24 +68,31 @@
             <span class="input-group-text">
               <em
                 class               = "fa fa-users"
-                [class.green-icon]  = "this.formActividad.get('id_empleado')?.valid"
-                [class.red-icon]    = "this.formActividad.get('id_empleado')?.invalid && this.formActividad.get('id_empleado')?.touched"
+                [class.green-icon]  = "this.formActividad.get('idEmpleado')?.valid"
+                [class.red-icon]    = "this.formActividad.get('idEmpleado')?.invalid && this.formActividad.get('idEmpleado')?.touched"
               ></em>
             </span>
             <select
               class             = "form-control"
-              formControlName   = "id_empleado"
+              formControlName   = "idEmpleado"
             >
                 <option *ngFor="let empleado of empleados" [value]="empleado.id">
                     {{empleado.nombre}}
                 </option>
             </select>
           </div>
-        <button type="submit" [disabled]="this.formActividad.invalid" class="btn btn-primary">
+        <button 
+            type="submit" 
+            [disabled]="this.formActividad.invalid" 
+            class="btn btn-primary m-1"
+        >
           Guardar
         </button>
-        <em> &nbsp; </em>
-        <button type="button" class="btn btn-secondary" (click)="cancelar()">
+        <button 
+            type="button" 
+            class="btn btn-secondary m-1" 
+            (click)="cancelar()"
+        >
           Cancelar
         </button>
       </form>

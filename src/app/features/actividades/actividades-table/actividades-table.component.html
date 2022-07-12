@@ -50,13 +50,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr align="center" >
-              <td>prueba</td>
-              <td>prueba</td>
-              <td>prueba</td>
-              <td>prueba</td>
-              <td>prueba</td>
-              <td>prueba</td>
+            <tr align="center" *ngFor="let actividad of actividades">
+              <td>{{actividad.id}}</td>
+              <td>{{actividad.nombre}}</td>
+              <td>{{actividad.descripcion}}</td>
+              <td>{{actividad.estado}}</td>
+              <td>{{actividad.fechaEjecucion}}</td>
+              <td>{{actividad.empleado?.nombre}}</td>
               <td>
                 <em 
                   class="fas fa-pencil-alt text-primary pointer"

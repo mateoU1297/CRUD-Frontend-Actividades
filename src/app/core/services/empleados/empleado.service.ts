@@ -7,7 +7,7 @@ import { Empleado } from '../../interfaces/empleado.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class EmpleadosService {
+export class EmpleadoService {
 
   private myAppUrl: string = 'http://localhost:8080/empleado';
 
