@@ -26,11 +26,19 @@
               />
             </div>
             <div class="col-6">
-              <button type="button" class="btn btn-primary" >
+              <button 
+                type="button" 
+                class="btn btn-primary"
+                (click)="buscarPorNombre()" 
+              >
                 <i class="fas fa-search" aria-hidden="true"></i>
               </button>
               <em> &nbsp; </em>
-              <button type="button" class="btn btn-secondary">
+              <button 
+                type="button" 
+                class="btn btn-secondary"
+                (click)="limpiarBuscador()"
+              >
                 <i class="fas fa-eraser" aria-hidden="true"></i>
               </button>
             </div>
@@ -60,10 +68,13 @@
               <td>
                 <em 
                   class="fas fa-pencil-alt text-primary pointer"
-                  [routerLink]="['/actividades/editar']"
+                  [routerLink]="['/actividades/editar', actividad.id]"
                 ></em>
                 <em> &nbsp; </em>
-                <em class="fas fa-trash text-danger pointer"></em>
+                <em 
+                  class="fas fa-trash text-danger pointer"
+                  (click)="eliminar(actividad.id!)"
+                ></em>
               </td>
             </tr>
           </tbody>

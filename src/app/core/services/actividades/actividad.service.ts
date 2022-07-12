@@ -21,4 +21,17 @@ export class ActividadService {
   create(actividad: Actividad): Observable<any> {
     return this.http.post<any>(`${this.myAppUrl}/create`, actividad);
   }
+
+  delete(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.myAppUrl}/delete/${id}`);
+  }
+
+  getActividadesByName(nombre: string): Observable<Actividad[]> {
+    return this.http.get<Actividad[]>(`${this.myAppUrl}/find-by-name/${nombre}`);
+  }
+
+  getActividadById(id: number): Observable<Actividad> {
+    return this.http.get<Actividad>(`${this.myAppUrl}/find-by-id/${id}`);
+  }
+
 }

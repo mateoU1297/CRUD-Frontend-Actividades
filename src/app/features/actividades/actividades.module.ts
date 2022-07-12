@@ -15,9 +15,9 @@ import { ActividadesTableComponent } from './actividades-table/actividades-table
   ],
   imports: [
     CommonModule,
-    ActividadesRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    HttpClientModule
+    ActividadesRoutingModule
   ]
 })
 export class ActividadesModule { }
