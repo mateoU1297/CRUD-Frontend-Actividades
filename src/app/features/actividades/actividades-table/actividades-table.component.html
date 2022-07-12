@@ -1,1 +1,73 @@
-<p>actividades-table works!</p>
+<div class="container mt-4">
+    <div  class="card card-primary card-outline">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-6">
+            <button
+              type          = "button"
+              class         = "btn btn-primary"
+              routerLink    = "/actividades/crear"
+            >
+              <em class="fa fa-plus"></em> Crear
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="formBuscador" class="form-inline">
+          <div class="row">
+            <div class="col-6">
+              <input
+                type            = "text"
+                formControlName = "buscador"
+                class           = "form-control"
+                placeholder     = "Buscar actividad"
+                maxlength       = "250"
+              />
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-primary" >
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </button>
+              <em> &nbsp; </em>
+              <button type="button" class="btn btn-secondary">
+                <i class="fas fa-eraser" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          
+        </form>
+        <table id = "dtActividades" class = "mt-2 table table-bordered table-striped table-responsive">
+          <thead>
+            <tr align="center">
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Estado</th>
+              <th>Fecha ejecución</th>
+              <th>Empleado asignado</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr align="center" >
+              <td>prueba</td>
+              <td>prueba</td>
+              <td>prueba</td>
+              <td>prueba</td>
+              <td>prueba</td>
+              <td>prueba</td>
+              <td>
+                <em 
+                  class="fas fa-pencil-alt text-primary pointer"
+                  [routerLink]="['/actividades/editar']"
+                ></em>
+                <em> &nbsp; </em>
+                <em class="fas fa-trash text-danger pointer"></em>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

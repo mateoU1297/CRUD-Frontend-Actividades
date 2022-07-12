@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: 'actividades',
     loadChildren: () => import('./features/actividades/actividades.module').then( m => m.ActividadesModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'actividades'
   }
 ];
 

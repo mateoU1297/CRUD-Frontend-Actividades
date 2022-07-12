@@ -1,1 +1,93 @@
-<p>actividades-form works!</p>
+<div class="card mt-4">
+    <div class="card-header"> Actividad</div>
+    <div class="card-body">
+      <form [formGroup]="formActividad" (ngSubmit)="guardar()">
+        <div class="input-group input-group-lg mb-3">
+          <span class="input-group-text">
+            <em
+              class               = "fas fa-file-signature"
+              [class.green-icon]  = "this.formActividad.get('nombre')?.valid"
+              [class.red-icon]    = "this.formActividad.get('nombre')?.invalid && this.formActividad.get('nombre')?.touched"
+            ></em>
+          </span>
+          <input
+            formControlName   = "nombre"
+            type              = "text"
+            class             = "form-control"
+            placeholder       = "Escribir nombre actividad"
+          />
+        </div>
+        <div class="input-group input-group-lg mb-3">
+            <span class="input-group-text">
+              <em
+                class               = "fas fa-info-circle"
+                [class.green-icon]  = "this.formActividad.get('descripcion')?.valid"
+                [class.red-icon]    = "this.formActividad.get('descripcion')?.invalid && this.formActividad.get('descripcion')?.touched"
+              ></em>
+            </span>
+            <input
+              formControlName   = "descripcion"
+              type              = "text"
+              class             = "form-control"
+              placeholder       = "Escribir descripción actividad"
+            />
+        </div>
+        <div class="input-group input-group-lg mb-3">
+          <span class="input-group-text">
+            <em
+              class               = "fa fa-question"
+              [class.green-icon]  = "this.formActividad.get('estado')?.valid"
+              [class.red-icon]    = "this.formActividad.get('estado')?.invalid && this.formActividad.get('estado')?.touched"
+            ></em>
+          </span>
+          <select
+            class             = "form-control"
+            formControlName   = "estado"
+          >
+            <option *ngFor="let estado of estados">
+                {{ estado }}
+            </option>
+          </select>
+        </div>
+        <div class="input-group input-group-lg mb-3">
+            <span class="input-group-text">
+              <em
+                class               = "fa fa-calendar-check"
+                [class.green-icon]  = "this.formActividad.get('fecha')?.valid"
+                [class.red-icon]    = "this.formActividad.get('fecha')?.invalid && this.formActividad.get('fecha')?.touched"
+              ></em>
+            </span>
+            <input
+                formControlName   = "fecha"
+                type              = "text"
+                class             = "form-control"
+                placeholder       = "Escribir fecha actividad"
+            />
+        </div>
+        <div class="input-group input-group-lg mb-3">
+            <span class="input-group-text">
+              <em
+                class               = "fa fa-users"
+                [class.green-icon]  = "this.formActividad.get('id_empleado')?.valid"
+                [class.red-icon]    = "this.formActividad.get('id_empleado')?.invalid && this.formActividad.get('id_empleado')?.touched"
+              ></em>
+            </span>
+            <select
+              class             = "form-control"
+              formControlName   = "id_empleado"
+            >
+                <option *ngFor="let empleado of empleados" [value]="empleado.id">
+                    {{empleado.nombre}}
+                </option>
+            </select>
+          </div>
+        <button type="submit" [disabled]="this.formActividad.invalid" class="btn btn-primary">
+          Guardar
+        </button>
+        <em> &nbsp; </em>
+        <button type="button" class="btn btn-secondary" (click)="cancelar()">
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>
